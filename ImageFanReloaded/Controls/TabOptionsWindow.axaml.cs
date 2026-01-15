@@ -244,7 +244,7 @@ public partial class TabOptionsWindow : Window, ITabOptionsView
 			var aFolderOrderingItem = new ComboBoxItem
 			{
 				Tag = aFolderOrderingValue,
-				Content = aFolderOrderingValue.Description
+				Content = aFolderOrderingValue.GetDescription()
 			};
 
 			_folderOrderingComboBox.Items.Add(aFolderOrderingItem);
@@ -286,7 +286,7 @@ public partial class TabOptionsWindow : Window, ITabOptionsView
 			var anImageFileOrderingItem = new ComboBoxItem
 			{
 				Tag = anImageFileOrderingValue,
-				Content = anImageFileOrderingValue.Description
+				Content = anImageFileOrderingValue.GetDescription()
 			};
 
 			_imageFileOrderingComboBox.Items.Add(anImageFileOrderingItem);
@@ -328,7 +328,7 @@ public partial class TabOptionsWindow : Window, ITabOptionsView
 			var anImageViewDisplayModeItem = new ComboBoxItem
 			{
 				Tag = anImageViewDisplayModeValue,
-				Content = anImageViewDisplayModeValue.Description
+				Content = anImageViewDisplayModeValue.GetDescription()
 			};
 
 			_imageViewDisplayModeComboBox.Items.Add(anImageViewDisplayModeItem);
@@ -445,7 +445,7 @@ public partial class TabOptionsWindow : Window, ITabOptionsView
 			var anUpsizeFullScreenImagesUpToScreenSizeItem = new ComboBoxItem
 			{
 				Tag = anUpsizeFullScreenImagesUpToScreenSize,
-				Content = anUpsizeFullScreenImagesUpToScreenSize.Description
+				Content = anUpsizeFullScreenImagesUpToScreenSize.GetDescription()
 			};
 
 			_upsizeFullScreenImagesUpToScreenSizeComboBox.Items.Add(anUpsizeFullScreenImagesUpToScreenSizeItem);

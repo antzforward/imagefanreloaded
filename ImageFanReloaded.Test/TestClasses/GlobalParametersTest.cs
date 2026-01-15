@@ -113,28 +113,28 @@ public class GlobalParametersTest : TestBase
 		Assert.NotEmpty(_globalParameters.UserProfilePath);
 		Assert.NotEmpty(_globalParameters.SpecialFolders);
 
-		Assert.NotNull(_globalParameters.InvalidImage.Bitmap);
+		Assert.NotNull(_globalParameters.InvalidImage.GetBitmap());
 
 		var expectedPersistentImagesCount = 1 + 2 * Enum.GetValues<ThumbnailSize>().Length;
 		Assert.Equal(expectedPersistentImagesCount, _globalParameters.PersistentImages.Count);
 
-		Assert.NotNull(_globalParameters.DriveIcon.Bitmap);
-		Assert.NotNull(_globalParameters.FolderIcon.Bitmap);
+		Assert.NotNull(_globalParameters.DriveIcon.GetBitmap());
+		Assert.NotNull(_globalParameters.FolderIcon.GetBitmap());
 
 		SaveImageToDisc(
-			_globalParameters.InvalidImage.Bitmap, $"{nameof(_globalParameters.InvalidImage)}{OutputFileExtension}");
+			_globalParameters.InvalidImage.GetBitmap(), $"{nameof(_globalParameters.InvalidImage)}{OutputFileExtension}");
 		SaveImageToDisc(
-			_globalParameters.GetInvalidImageThumbnail(ThumbnailSize).Bitmap,
+			_globalParameters.GetInvalidImageThumbnail(ThumbnailSize).GetBitmap(),
 			$"InvalidImageThumbnail_{OutputFileExtension}");
 
 		SaveImageToDisc(
-			_globalParameters.GetLoadingImageThumbnail(ThumbnailSize).Bitmap,
+			_globalParameters.GetLoadingImageThumbnail(ThumbnailSize).GetBitmap(),
 			$"LoadingImageThumbnail_{OutputFileExtension}");
 
 		SaveImageToDisc(
-			_globalParameters.DriveIcon.Bitmap, $"{nameof(_globalParameters.DriveIcon)}{OutputFileExtension}");
+			_globalParameters.DriveIcon.GetBitmap(), $"{nameof(_globalParameters.DriveIcon)}{OutputFileExtension}");
 		SaveImageToDisc(
-			_globalParameters.FolderIcon.Bitmap, $"{nameof(_globalParameters.FolderIcon)}{OutputFileExtension}");
+			_globalParameters.FolderIcon.GetBitmap(), $"{nameof(_globalParameters.FolderIcon)}{OutputFileExtension}");
 	}
 
 	private const int ThumbnailSize = 250;

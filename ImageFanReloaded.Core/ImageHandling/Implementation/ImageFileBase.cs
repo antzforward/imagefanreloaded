@@ -88,7 +88,7 @@ public abstract class ImageFileBase : IImageFile
 				{
 					var maxUpscalingFactorToViewPort = image.GetMaxUpscalingFactorToViewPort(viewPortSize);
 					var upscalingFactor = Math.Min(
-						maxUpscalingFactorToViewPort, upsizeFullScreenImagesUpToScreenSize.Value);
+						maxUpscalingFactorToViewPort, upsizeFullScreenImagesUpToScreenSize.Value());
 
 					try
 					{

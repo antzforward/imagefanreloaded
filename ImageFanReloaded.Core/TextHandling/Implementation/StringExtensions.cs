@@ -4,33 +4,35 @@ namespace ImageFanReloaded.Core.TextHandling.Implementation;
 
 public static class StringExtensions
 {
-	extension(string longerString)
-	{
-		public string? GetRemainingStringAfterSubstringMatch(string shorterString, StringComparison stringComparison)
-		{
-			string? remainingStringAfterSubstringMatch;
+    public static string? GetRemainingStringAfterSubstringMatch(this string longerString, string shorterString, StringComparison stringComparison)
+    {
+        if (longerString is null)
+            throw new ArgumentNullException(nameof(longerString));
+        if (shorterString is null)
+            throw new ArgumentNullException(nameof(shorterString));
 
-			var matchIndex = longerString.IndexOf(shorterString, stringComparison);
+        string? remainingStringAfterSubstringMatch;
 
-			if (matchIndex >= 0)
-			{
-				var remainingStringStartIndex = matchIndex + shorterString.Length;
+        var matchIndex = longerString.IndexOf(shorterString, stringComparison);
 
-				if (remainingStringStartIndex < longerString.Length)
-				{
-					remainingStringAfterSubstringMatch = longerString[remainingStringStartIndex..];
-				}
-				else
-				{
-					remainingStringAfterSubstringMatch = string.Empty;
-				}
-			}
-			else
-			{
-				remainingStringAfterSubstringMatch = null;
-			}
+        if (matchIndex >= 0)
+        {
+            var remainingStringStartIndex = matchIndex + shorterString.Length;
 
-			return remainingStringAfterSubstringMatch;
-		}
-	}
+            if (remainingStringStartIndex < longerString.Length)
+            {
+                remainingStringAfterSubstringMatch = longerString[remainingStringStartIndex..];
+            }
+            else
+            {
+                remainingStringAfterSubstringMatch = string.Empty;
+            }
+        }
+        else
+        {
+            remainingStringAfterSubstringMatch = null;
+        }
+
+        return remainingStringAfterSubstringMatch;
+    }
 }

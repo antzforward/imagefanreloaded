@@ -7,46 +7,43 @@ namespace ImageFanReloaded.ImageHandling.Extensions;
 
 public static class SaveFileImageFormatExtensions
 {
-	extension(ISaveFileImageFormat saveFileImageFormat)
-	{
-		public MagickFormat MagickFormat
-		{
-			get
-			{
-				var saveFileImageFormatType = saveFileImageFormat.GetType();
+    public static MagickFormat GetMagickFormat(this ISaveFileImageFormat saveFileImageFormat)
+    {
+        if (saveFileImageFormat is null)
+            throw new ArgumentNullException(nameof(saveFileImageFormat));
 
-				if (saveFileImageFormatType == typeof(JpegSaveFileImageFormat))
-				{
-					return MagickFormat.Jpg;
-				}
+        var saveFileImageFormatType = saveFileImageFormat.GetType();
 
-				if (saveFileImageFormatType == typeof(GifSaveFileImageFormat))
-				{
-					return MagickFormat.Gif;
-				}
+        if (saveFileImageFormatType == typeof(JpegSaveFileImageFormat))
+        {
+            return MagickFormat.Jpg;
+        }
 
-				if (saveFileImageFormatType == typeof(PngSaveFileImageFormat))
-				{
-					return MagickFormat.Png;
-				}
+        if (saveFileImageFormatType == typeof(GifSaveFileImageFormat))
+        {
+            return MagickFormat.Gif;
+        }
 
-				if (saveFileImageFormatType == typeof(WebpSaveFileImageFormat))
-				{
-					return MagickFormat.WebP;
-				}
+        if (saveFileImageFormatType == typeof(PngSaveFileImageFormat))
+        {
+            return MagickFormat.Png;
+        }
 
-				if (saveFileImageFormatType == typeof(TiffSaveFileImageFormat))
-				{
-					return MagickFormat.Tif;
-				}
+        if (saveFileImageFormatType == typeof(WebpSaveFileImageFormat))
+        {
+            return MagickFormat.WebP;
+        }
 
-				if (saveFileImageFormatType == typeof(BmpSaveFileImageFormat))
-				{
-					return MagickFormat.Bmp;
-				}
+        if (saveFileImageFormatType == typeof(TiffSaveFileImageFormat))
+        {
+            return MagickFormat.Tif;
+        }
 
-				throw new NotSupportedException("Save image format not supported.");
-			}
-		}
-	}
+        if (saveFileImageFormatType == typeof(BmpSaveFileImageFormat))
+        {
+            return MagickFormat.Bmp;
+        }
+
+        throw new NotSupportedException("Save image format not supported.");
+    }
 }

@@ -45,9 +45,9 @@ public partial class FullScreenImageWindow : Window, IImageView
 		{
 			_mouseCursorFactory = value;
 
-			_standardCursor = _mouseCursorFactory!.StandardCursor.Cursor;
-			_zoomCursor = _mouseCursorFactory!.ZoomCursor.Cursor;
-			_dragCursor = _mouseCursorFactory!.DragCursor.Cursor;
+			_standardCursor = _mouseCursorFactory!.StandardCursor.GetCursor();
+			_zoomCursor = _mouseCursorFactory!.ZoomCursor.GetCursor();
+			_dragCursor = _mouseCursorFactory!.DragCursor.GetCursor();
 		}
 	}
 
@@ -442,7 +442,7 @@ public partial class FullScreenImageWindow : Window, IImageView
 						break;
 					}
 
-					var anImageFrameBitmap = aThumbnailImageFrame.Bitmap;
+					var anImageFrameBitmap = aThumbnailImageFrame.GetBitmap();
 
 					if (ctsAnimation.IsCancellationRequested)
 					{
@@ -649,7 +649,7 @@ public partial class FullScreenImageWindow : Window, IImageView
 		DisposePreviousImageAndResizedImage();
 	}
 
-	private void SetDisplayImageSource(IImage? image) => _displayImage.Source = image?.Bitmap;
+	private void SetDisplayImageSource(IImage? image) => _displayImage.Source = image?.GetBitmap();
 
 	private async Task PauseBetweenImages(TimeSpan slideshowInterval)
 	{

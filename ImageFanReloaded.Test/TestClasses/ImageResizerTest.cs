@@ -46,7 +46,7 @@ public class ImageResizerTest : TestBase
 
 		var outputFileName = GetOutputImageFileName(LandscapeImageFileName, viewPortSize, referenceResizedImageSize);
 
-		SaveImageToDisc(resizedImage.Bitmap, outputFileName);
+		SaveImageToDisc(resizedImage.GetBitmap(), outputFileName);
 	}
 
 	[Theory]
@@ -78,7 +78,7 @@ public class ImageResizerTest : TestBase
 
 		var outputFileName = GetOutputImageFileName(PortraitImageFileName, viewPortSize, referenceResizedImageSize);
 
-		SaveImageToDisc(resizedImage.Bitmap, outputFileName);
+		SaveImageToDisc(resizedImage.GetBitmap(), outputFileName);
 	}
 
 	private const string LandscapeImageFileName = "Landscape";

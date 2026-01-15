@@ -16,7 +16,7 @@ public class ImageResizer : ImageResizerBase
 	{
 		var destinationSize = new PixelSize(resizedImageFrameSize.Width, resizedImageFrameSize.Height);
 
-		var bitmap = imageFrame.Bitmap;
+		var bitmap = imageFrame.GetBitmap();
 		var resizedBitmap = bitmap.CreateScaledBitmap(destinationSize);
 
 		var resizedImageFrame = new ImageFrame(resizedBitmap, resizedImageFrameSize, imageFrame.DelayUntilNextFrame);

@@ -387,7 +387,7 @@ public partial class WindowedImageWindow : Window, IImageView
 						break;
 					}
 
-					var anImageFrameBitmap = aThumbnailImageFrame.Bitmap;
+					var anImageFrameBitmap = aThumbnailImageFrame.GetBitmap();
 
 					if (ctsAnimation.IsCancellationRequested)
 					{
@@ -459,7 +459,7 @@ public partial class WindowedImageWindow : Window, IImageView
 		DisposeImage(ref _image);
 	}
 
-	private void SetDisplayImageSource(IImage? image) => _displayImage.Source = image?.Bitmap;
+	private void SetDisplayImageSource(IImage? image) => _displayImage.Source = image?.GetBitmap();
 
 	private async Task PauseBetweenImages(TimeSpan slideshowInterval)
 	{

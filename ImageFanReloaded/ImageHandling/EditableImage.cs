@@ -252,7 +252,7 @@ public class EditableImage : DisposableBase, IEditableImage
 		ThrowObjectDisposedExceptionIfNecessary();
 
 		ApplyImageCompression(CurrentImage);
-		await CurrentImage.WriteAsync(imageFilePath, saveFileImageFormat.MagickFormat);
+		await CurrentImage.WriteAsync(imageFilePath, saveFileImageFormat.GetMagickFormat());
 	}
 
 	public void Crop(int topLeftPointX, int topLeftPointY, int width, int height)

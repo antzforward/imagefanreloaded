@@ -34,8 +34,8 @@ public partial class ThumbnailBox : UserControl, IThumbnailBox
 		{
 			_mouseCursorFactory = value;
 
-			_standardCursor = _mouseCursorFactory!.StandardCursor.Cursor;
-			_zoomCursor = _mouseCursorFactory!.ZoomCursor.Cursor;
+			_standardCursor = _mouseCursorFactory!.StandardCursor.GetCursor();
+			_zoomCursor = _mouseCursorFactory!.ZoomCursor.GetCursor();
 		}
 	}
 
@@ -50,7 +50,7 @@ public partial class ThumbnailBox : UserControl, IThumbnailBox
 
 			ImageFile = _thumbnailInfo!.ImageFile;
 
-			_thumbnailImage.Source = _thumbnailInfo.ThumbnailImage!.Bitmap;
+			_thumbnailImage.Source = _thumbnailInfo.ThumbnailImage!.GetBitmap();
 
 			_thumbnailTextBlock.Text = _thumbnailInfo.ThumbnailText;
 			_thumbnailTextBlock.IsVisible = TabOptions!.ShowThumbnailImageFileName;
@@ -100,7 +100,7 @@ public partial class ThumbnailBox : UserControl, IThumbnailBox
 		}
 		else
 		{
-			_thumbnailImage.Source = thumbnailImage.Bitmap;
+			_thumbnailImage.Source = thumbnailImage.GetBitmap();
 		}
 	}
 
@@ -170,7 +170,7 @@ public partial class ThumbnailBox : UserControl, IThumbnailBox
 						return;
 					}
 
-					var anImageFrameBitmap = aThumbnailImageFrame.Bitmap;
+					var anImageFrameBitmap = aThumbnailImageFrame.GetBitmap();
 
 					if (ctsAnimation.IsCancellationRequested)
 					{
